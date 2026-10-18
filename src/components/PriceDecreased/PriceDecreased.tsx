@@ -1,0 +1,27 @@
+import React from "react";
+import { Product } from "@/types";
+import ProductCard from "@/components/ProductCard/ProductCard";
+
+const PriceDecreased = ({ products }: { products: Product[] }) => {
+  const decreased = products.filter((p) => p.change.dir === "down");
+  if (decreased.length === 0) return null;
+
+  return (
+    <section className="container mx-auto px-4 py-4">
+      <div className="mb-4 flex items-center gap-2">
+        <span className="text-sm font-bold text-green-600">▼</span>
+        <h2 className="text-base font-bold text-slate-900">Today's Price Decreased</h2>
+        <span className="ml-1 rounded-full bg-green-50 px-2 py-0.5 text-xs font-semibold text-green-600">
+          {decreased.length}
+        </span>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {decreased.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default PriceDecreased;
