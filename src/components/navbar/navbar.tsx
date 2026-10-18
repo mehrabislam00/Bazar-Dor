@@ -71,7 +71,7 @@ const Navbar = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M18 12H9m0 0l3-3m-3 3l3 3" />
               </svg>
-              লগ ইন
+              সাইন ইন
             </Link>
             <Link
               href="/signup"
@@ -85,6 +85,13 @@ const Navbar = () => {
           </div>
 
       
+          <Link
+            href="/login"
+            className="sm:hidden inline-flex items-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:bg-slate-50 active:scale-95"
+          >
+            সাইন ইন
+          </Link>
+
           <button
             type="button"
             aria-label={menuOpen ? "মেনু বন্ধ করুন" : "মেনু খুলুন"}
@@ -119,7 +126,7 @@ const Navbar = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M18 12H9m0 0l3-3m-3 3l3 3" />
             </svg>
-            লগ ইন
+            সাইন ইন
           </Link>
           <Link
             href="/signup"
