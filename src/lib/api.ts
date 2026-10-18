@@ -1,7 +1,11 @@
 import { Category } from "@/types";
 
-const BASE = "https://openapi.programming-hero.com/api/bazardor";
+const BASE = process.env.BAZAR_DOR_API_URL;
 const CACHE_OPTIONS = { next: { revalidate: 60 } };
+
+if (!BASE) {
+  throw new Error("BAZAR_DOR_API_URL is not configured.");
+}
 
 export async function getProducts() {
   "use cache";

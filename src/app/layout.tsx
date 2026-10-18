@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 import Category from "@/components/Category/category";
 import PriceTicker from "@/components/Priceticker/Priceticker";
+import Footer from "@/components/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +25,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="bn"
-      data-theme ="light"
+      data-theme="light"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
@@ -37,6 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
 
         </div>
+        <Footer /> 
        
         
         </body>
