@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 const SignupForm = () => {
   const router = useRouter();
@@ -20,10 +21,12 @@ const SignupForm = () => {
 
     if (password.length < 8) {
       setError("পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে।");
+      toast.error("পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে।");
       return;
     }
     if (password !== confirm) {
       setError("পাসওয়ার্ড দুটি একই নয়।");
+      toast.error("পাসওয়ার্ড দুটি একই নয়।");
       return;
     }
 
@@ -37,10 +40,12 @@ const SignupForm = () => {
 
     if (signUpError) {
       setError(signUpError.message ?? "অ্যাকাউন্ট তৈরি করা যায়নি।");
+      toast.error(signUpError.message ?? "অ্যাকাউন্ট তৈরি করা যায়নি।");
       setIsSubmitting(false);
       return;
     }
 
+    toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!");
     router.push("/");
     router.refresh();
   };

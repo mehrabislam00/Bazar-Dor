@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar/navbar";
 import Category from "@/components/Category/category";
 import PriceTicker from "@/components/Priceticker/Priceticker";
 import Footer from "@/components/Footer/Footer";
+import ToastProvider from "@/components/ToastProvider/ToastProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,11 +36,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Navbar />
         <Category />
         <PriceTicker />
-        <div>
+        <div className="flex-1 flex flex-col">
           {children}
 
         </div>
         <Footer /> 
+        <ToastProvider />
        
         
         </body>

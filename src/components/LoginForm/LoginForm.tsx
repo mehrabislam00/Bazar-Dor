@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -25,10 +26,12 @@ const LoginForm = () => {
 
     if (signInError) {
       setError(signInError.message ?? "সাইন ইন করা যায়নি। ইমেইল ও পাসওয়ার্ড পরীক্ষা করুন।");
+      toast.error(signInError.message ?? "সাইন ইন করা যায়নি। ইমেইল ও পাসওয়ার্ড পরীক্ষা করুন।");
       setIsSubmitting(false);
       return;
     }
 
+    toast.success("সফলভাবে সাইন ইন হয়েছে!");
     router.push("/");
     router.refresh();
   };

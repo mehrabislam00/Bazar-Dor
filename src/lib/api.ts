@@ -21,6 +21,13 @@ export async function getProductsByCategory(category: string) {
   return res.json();
 }
 
+export async function getSingleProduct(id: number) {
+  "use cache";
+  const res = await fetch(`${BASE}/products/${id}`, CACHE_OPTIONS);
+  if (!res.ok) return null;
+  return res.json();
+}
+
 export async function getCategories() {
   "use cache";
   const res = await fetch(`${BASE}/categories`, CACHE_OPTIONS);

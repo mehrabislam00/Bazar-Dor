@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { Product } from "@/types";
 
 const ProductCard = ({ product }: { product: Product }) => {
@@ -6,8 +7,10 @@ const ProductCard = ({ product }: { product: Product }) => {
   const isFlat = product.change.dir === "flat" || product.change.pct === 0;
 
   return (
-    <div className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition-shadow duration-200 hover:shadow-md">
-      {/* Top: icon + name + unit */}
+    <Link
+      href={`/product/${product.id}`}
+      className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+    >
       <div className="flex items-center gap-3">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-2xl">
           {product.image}
@@ -18,18 +21,17 @@ const ProductCard = ({ product }: { product: Product }) => {
         </div>
       </div>
 
-      {/* Bottom: price + change badge */}
       <div className="flex items-end justify-between">
         <div>
           <p className="mb-0.5 text-[11px] text-slate-400">আজকের দাম</p>
           <p className="text-2xl font-extrabold text-slate-900">
-            ৳{product.today.toLocaleString()}
+            ৳{product.today.toLocaleString("bn-BD")}
           </p>
         </div>
 
         {isFlat ? (
           <span className="inline-flex items-center gap-1 rounded-lg bg-slate-100 px-2.5 py-1.5 text-xs font-bold text-slate-400">
-            — 0.0%
+            — ০.০%
           </span>
         ) : (
           <span className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-xs font-bold ${
@@ -39,7 +41,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           </span>
         )}
       </div>
-    </div>
+    </Link>
   );
 };
 
