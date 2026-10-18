@@ -14,14 +14,14 @@ const ProductCard = ({ product }: { product: Product }) => {
         </span>
         <div className="flex flex-col leading-tight">
           <span className="text-sm font-bold text-slate-900">{product.nameBn}</span>
-          <span className="text-xs text-slate-400">per {product.unit}</span>
+          <span className="text-xs text-slate-400">প্রতি {product.unit}</span>
         </div>
       </div>
 
       {/* Bottom: price + change badge */}
       <div className="flex items-end justify-between">
         <div>
-          <p className="mb-0.5 text-[11px] text-slate-400">Today's Price</p>
+          <p className="mb-0.5 text-[11px] text-slate-400">আজকের দাম</p>
           <p className="text-2xl font-extrabold text-slate-900">
             ৳{product.today.toLocaleString()}
           </p>

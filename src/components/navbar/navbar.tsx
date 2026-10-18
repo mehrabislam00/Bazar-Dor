@@ -11,7 +11,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setCurrentDate(
-      new Intl.DateTimeFormat("en-US", {
+      new Intl.DateTimeFormat("bn-BD", {
         weekday: "short",
         month: "short",
         day: "numeric",
@@ -27,7 +27,7 @@ const Navbar = () => {
         {/* Left: brand */}
         <Link
           href="/"
-          aria-label="Bazar Dor home"
+          aria-label="বাজার দর হোম"
           className="group flex items-center gap-2 sm:gap-3 rounded-2xl px-2 py-1 transition-colors hover:bg-slate-50"
         >
           {/* Logo tile */}
@@ -54,7 +54,7 @@ const Navbar = () => {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500" />
               </span>
-              {currentDate || "Today"}
+              {currentDate || "আজ"}
             </span>
           </span>
         </Link>
@@ -71,7 +71,7 @@ const Navbar = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M18 12H9m0 0l3-3m-3 3l3 3" />
               </svg>
-              Log in
+              লগ ইন
             </Link>
             <Link
               href="/signup"
@@ -80,14 +80,14 @@ const Navbar = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-              Sign up
+              সাইন আপ
             </Link>
           </div>
 
       
           <button
             type="button"
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? "মেনু বন্ধ করুন" : "মেনু খুলুন"}
             onClick={() => setMenuOpen(!menuOpen)}
             className="sm:hidden inline-flex items-center justify-center h-9 w-9 rounded-xl border border-slate-200 bg-white text-slate-600 shadow-sm transition-all duration-200 hover:bg-slate-50 active:scale-95"
           >
@@ -119,7 +119,7 @@ const Navbar = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M18 12H9m0 0l3-3m-3 3l3 3" />
             </svg>
-            Log in
+            লগ ইন
           </Link>
           <Link
             href="/signup"
@@ -129,7 +129,7 @@ const Navbar = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
-            Sign up
+            সাইন আপ
           </Link>
         </div>
       </div>
