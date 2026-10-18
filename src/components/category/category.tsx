@@ -1,31 +1,39 @@
-import React from 'react'
+import React from "react";
 
-const category = () => {
+const categories = [
+  { label: "Rice", emoji: "🌾" },
+  { label: "Lentils", emoji: "🫘" },
+  { label: "Oil", emoji: "🫙" },
+  { label: "Vegetables", emoji: "🥦" },
+  { label: "Fish", emoji: "🐟" },
+  { label: "Meat", emoji: "🍖" },
+  { label: "Eggs & Dairy", emoji: "🥚" },
+  { label: "Spices", emoji: "🌶️" },
+  { label: "Fruits", emoji: "🍎" },
+  { label: "Snacks", emoji: "🍿" },
+];
+
+const Category = () => {
   return (
-   <div className=" bg-base-100 shadow-sm">
-  <div >
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+    <section className="border-b border-slate-100 bg-white">
+      <div className="container mx-auto ">
+        {/* Scrollable row */}
+        <div className="flex items-center gap-1 overflow-x-auto px-5 py-3 scrollbar-none">
+          {categories.map((cat) => (
+           <button
+  key={cat.label}
+  className="group flex shrink-0 items-center gap-1.5 rounded-xl px-3 py-2 transition-all duration-200 hover:bg-green-50 active:scale-95"
+>
+  <span className="text-base leading-none">{cat.emoji}</span>
+  <span className="text-xs font-medium text-slate-600 transition-colors duration-200 group-hover:text-green-700 whitespace-nowrap">
+    {cat.label}
+  </span>
+</button>
+          ))}
+        </div>
       </div>
-      <ul
-        tabIndex={-1}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li><a>Item 3</a></li>
-      </ul>
-    </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li><a>Item 3</a></li>
-    </ul>
-  </div>
+    </section>
+  );
+};
 
-</div>
-  )
-}
-
-export default category
+export default Category;
