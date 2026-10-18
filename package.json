@@ -9,6 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@better-auth/mongo-adapter": "^1.7.10",
+    "better-auth": "^1.7.10",
+    "mongodb": "^7.7.0",
     "next": "16.4.2",
     "react": "19.3.0",
     "react-dom": "19.3.0"
@@ -20,8 +23,8 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "daisyui": "^5.7.50",
-    "eslint": "^9",
-    "eslint-config-next": "^14.2.35",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
