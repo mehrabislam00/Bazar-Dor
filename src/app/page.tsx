@@ -1,7 +1,15 @@
+import Hero from "@/components/Hero/hero"
+
 const page = () => {
   return (
-    <main>
-    </main>
+   <>
+  <div className="bg-[#E1E8E1]">
+
+        <Hero />
+
+   </div>
+   
+   </>
   )
 }
 
