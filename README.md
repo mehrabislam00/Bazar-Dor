@@ -1,52 +1,50 @@
 # Bazar-Dor
 
-Daily market prices, category comparisons, and account-based product details for shoppers in Bangladesh.
+A responsive Bengali market-price companion for browsing daily product prices, comparing markets, and viewing protected product details.
 
 **Live demo:** [bazar-dor-x3dz.vercel.app](https://bazar-dor-x3dz.vercel.app/)
 
 ## Overview
 
-Bazar-Dor is a responsive Next.js application for browsing current product prices, comparing market ranges, and viewing price changes. Public visitors can explore the homepage and category listings. Authentication is required for product detail pages and profile management.
+Bazar-Dor helps shoppers explore current prices, category changes, and market ranges in one focused interface. Homepage and category browsing are public. Product details and profile management require authentication.
 
 ## Features
 
-- Bengali market-price dashboard with today-versus-yesterday changes
+- Daily product prices with today-versus-yesterday changes
 - Category navigation and category-specific product grids
-- Market minimum, maximum, and average price summaries
-- Protected product detail pages with login return URLs
-- Email/password authentication
-- Google and GitHub OAuth configuration through Better Auth
+- Minimum, maximum, and average market-price summaries
+- Protected product details with return-to-product login flow
+- Email/password, Google, and GitHub authentication through Better Auth
 - Profile name and avatar updates
 - Synchronized navbar session state and sign-out behavior
-- Toast notifications for authentication and account actions
-- Responsive desktop, tablet, and mobile layouts
-- Route-level loading and lightweight page transitions
+- Responsive desktop, tablet, and mobile UI
+- Toast notifications, loading states, and lightweight route transitions
 
 ## Screenshots
 
-All screenshots below are real logged-out captures from the deployed application. Authenticated screenshots are not included because no dedicated test account was available.
+These are real logged-out captures from the deployed application. No authenticated screenshots are included because no dedicated authorized test account was available.
 
-### Homepage
+### Latest deployed captures
 
-![Bazar-Dor homepage](docs/screenshots/homepage-desktop.png)
+![Latest Bazar-Dor homepage](docs/screenshots/homepage-current.png)
 
-![Bazar-Dor homepage full page](docs/screenshots/homepage-full-page.png)
+![Latest category page](docs/screenshots/category-current.png)
 
-![Bazar-Dor mobile homepage](docs/screenshots/mobile-homepage.png)
+![Latest sign-up page](docs/screenshots/signup-current.png)
 
-### Categories and prices
+### Additional captures
 
-![Category navigation](docs/screenshots/categories-desktop.png)
+![Homepage capture](docs/screenshots/home.png)
 
-![Cooking oil category](docs/screenshots/category-oil-desktop.png)
+![Category capture](docs/screenshots/category.png)
 
-### Authentication
+![Category comparison](docs/screenshots/category2.png)
 
-![Sign in](docs/screenshots/signin-desktop.png)
+![Product cards](docs/screenshots/cards.png)
 
-![Sign up](docs/screenshots/signup-desktop.png)
+![Sign in](docs/screenshots/sign-in.png)
 
-The screenshots are desktop and mobile logged-out captures from the deployed application.
+![Sign up](docs/screenshots/sign-up.png)
 
 ## Routes
 
@@ -64,45 +62,40 @@ Search, cart, checkout, and about routes are not currently implemented.
 
 ## Technology Stack
 
-- Next.js `16.4.2` with the App Router and Turbopack
+- Next.js `16.4.2` App Router with Turbopack
 - React `19.3.0` and TypeScript
 - Tailwind CSS `4` and DaisyUI `5`
-- Better Auth with MongoDB adapter
+- Better Auth with the MongoDB adapter
 - MongoDB
 - React Toastify
-- Vercel deployment
+- Vercel
 
 ## Project Structure
 
 ```text
-src/
-  app/                  App Router pages, layouts, loading, and auth API route
-  assets/               Bazar-Dor logo and hero image
-  components/           Navbar, categories, cards, forms, profile, and toast UI
-  lib/                  API client and Better Auth configuration
-  types/                Shared domain types
-docs/screenshots/       Real showcase screenshots and screenshot index
-public/                 Static public assets
+src/app/             App Router pages, layouts, loading, and auth API route
+src/components/      Navbar, categories, cards, forms, profile, and toast UI
+src/assets/          Bazar-Dor logo and hero image
+src/lib/             API client and Better Auth configuration
+src/types/           Shared domain types
+docs/screenshots/    Real showcase screenshots
+public/              Static public assets
 ```
 
 ## Prerequisites
 
 - Node.js 20 or newer recommended
 - npm
-- MongoDB database for Better Auth
+- MongoDB database
 - Google and/or GitHub OAuth applications for social sign-in
 
 ## Local Development
-
-Install dependencies:
 
 ```bash
 npm install
 ```
 
-Create `.env.local` from `.env.example` and provide real local values. Never commit `.env`, `.env.local`, database credentials, OAuth secrets, or Better Auth secrets.
-
-Start the development server:
+Copy `.env.example` to `.env.local` and provide real local values. Never commit `.env`, `.env.local`, database credentials, OAuth secrets, or Better Auth secrets.
 
 ```bash
 npm run dev
@@ -125,16 +118,18 @@ BETTER_AUTH_GITHUB_CLIENT_ID=your-github-client-id
 BETTER_AUTH_GITHUB_CLIENT_SECRET=your-github-client-secret
 ```
 
-For the live deployment, set `BETTER_AUTH_URL` to the production URL and configure all variables in Vercel for the Production environment. OAuth callback URLs use:
+For Vercel Production, set `BETTER_AUTH_URL` and `NEXT_PUBLIC_APP_URL` to the deployed URL and add all credentials in the Vercel Environment Variables panel.
+
+Production OAuth callback URLs:
 
 ```text
 https://bazar-dor-x3dz.vercel.app/api/auth/callback/google
 https://bazar-dor-x3dz.vercel.app/api/auth/callback/github
 ```
 
-## Authentication
+## Authentication and Security
 
-The server validates sessions through Better Auth and MongoDB. Product details and profile data are protected server-side; client-side cached profile data is only a display optimization and is never used as authorization. Google and GitHub must be configured with matching production callback URLs.
+Sessions are validated server-side through Better Auth and MongoDB. Client-side cached profile data is only a display optimization and is never used as authorization. Keep all secrets outside Git and configure separate local and production OAuth credentials where possible.
 
 ## Scripts
 
@@ -149,62 +144,53 @@ npm run lint      # Run ESLint
 
 1. Push the repository to GitHub.
 2. Import the project into Vercel.
-3. Add the environment variables under the Production environment.
-4. Configure the Google and GitHub callback URLs.
+3. Add Production environment variables.
+4. Configure Google and GitHub callback URLs.
 5. Deploy or redeploy the project.
 
-The production build has been verified locally with `npm run build`. The repository's lint command currently reports existing React effect warnings in unrelated Hero and Navbar code.
+The production build has been verified locally with `npm run build`. The lint command still reports existing React effect warnings in Hero and Navbar code.
 
 ## Showcase Sequence
 
 Suggested LinkedIn or portfolio carousel:
 
-1. `homepage-full-page.png` — introduce the complete daily price dashboard.
-2. `categories-desktop.png` — show fast category navigation.
-3. `category-oil-desktop.png` — highlight category-level comparison and sorting.
-4. `mobile-homepage.png` — demonstrate responsive behavior.
-5. `signin-desktop.png` — show the protected-detail entry point.
+1. `homepage-current.png` — introduce the daily price dashboard.
+2. `category-current.png` — show category navigation.
+3. `category2.png` — highlight category-level price comparison.
+4. `mobile-view1.png` — demonstrate responsive behavior.
+5. `signup-current.png` — show the account entry point.
 
-Suggested post title: **Bazar-Dor — A responsive daily market price companion**
+Suggested title: **Bazar-Dor — A responsive daily market price companion**
 
-Suggested summary: “Built a responsive Next.js market-price experience with category browsing, price comparison, protected product details, Better Auth integrations, and a mobile-friendly interface.”
-
-## Security and Privacy
-
-- Keep `.env` and `.env.local` outside version control.
-- Do not expose MongoDB credentials, OAuth client secrets, or Better Auth secrets.
-- Treat cached profile data as non-authoritative UI data.
-- Validate protected access on the server for every protected route.
-- Use separate OAuth credentials and environment values for local and production deployments.
+Suggested summary: “A responsive Next.js market-price experience with category browsing, price comparison, protected product details, Better Auth integrations, and a mobile-friendly interface.”
 
 ## Known Limitations
 
 - Authenticated showcase screenshots require a dedicated authorized test account.
 - Search, cart, checkout, and about pages are not implemented.
 - Social OAuth depends on correctly configured provider credentials, callback URLs, MongoDB, and Vercel environment variables.
-- The existing lint command reports unrelated React `setState`-in-effect errors in Hero and Navbar.
+- Existing lint findings remain in unrelated Hero and Navbar code.
 
 ## Future Improvements
 
 - Add search, cart, checkout, and order workflows.
-- Add automated end-to-end tests for email and social authentication.
-- Add a dedicated staging environment and test account.
-- Resolve the remaining lint findings and add CI checks.
-- Add richer authenticated account and notification views.
+- Add automated end-to-end authentication tests.
+- Add a staging environment and dedicated test account.
+- Resolve remaining lint findings and add CI checks.
 
 ## Contributing
 
 1. Create a feature branch.
 2. Keep secrets out of commits.
 3. Run `npx tsc --noEmit` and `npm run build` before opening a pull request.
-4. Describe user-visible changes and any environment requirements.
+4. Describe user-visible changes and environment requirements.
 
 ## License
 
-No license file is currently present in the repository. Add a license before distributing the project under specific reuse terms.
+No license file is currently present in the repository.
 
 ## Acknowledgments
 
-- Next.js and Vercel for the application and deployment platform
-- Better Auth for authentication workflows
-- The Programming Hero Bazar-Dor API for market-price data
+- Next.js and Vercel
+- Better Auth
+- Programming Hero Bazar-Dor API
