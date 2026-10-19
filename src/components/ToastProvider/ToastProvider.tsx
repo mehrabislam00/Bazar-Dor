@@ -14,6 +14,7 @@ const ToastProvider = () => {
       draggable
       theme="light"
       transition={Bounce}
+      style={{ zIndex: 9999 }}
     />
   );
 };

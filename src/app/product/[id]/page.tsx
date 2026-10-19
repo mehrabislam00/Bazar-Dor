@@ -1,26 +1,33 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Suspense } from "react";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
 import { getSingleProduct } from "@/lib/api";
 import ProductDetail from "@/components/ProductDetail/ProductDetail";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ id: string }> };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
-  const product = await getSingleProduct(Number(id));
-  return {
-    title: product ? `${product.nameBn} | বাজার দর` : "পণ্য পাওয়া যায়নি",
-  };
-}
+export const metadata: Metadata = {
+  title: "পণ্যের বিস্তারিত | বাজার দর",
+};
+
+const getProductPath = (id: string) => `/product/${encodeURIComponent(id)}`;
 
 const ProductContent = async ({ params }: Props) => {
   const { id } = await params;
+  const session = await auth.api.getSession({ headers: await headers() });
+
+  if (!session) {
+    const callbackUrl = encodeURIComponent(getProductPath(id));
+    redirect(`/login?callbackUrl=${callbackUrl}&authRequired=1`);
+  }
+
   const product = await getSingleProduct(Number(id));
   if (!product) return notFound();
 
   return <ProductDetail product={product} />;
-};
+}
 
 const ProductPage = ({ params }: Props) => {
   return (

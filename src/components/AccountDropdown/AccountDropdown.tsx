@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import Avatar from "@/components/Avatar/Avatar";
+import { toast } from "react-toastify";
 
 type Props = {
   name: string;
@@ -27,8 +28,15 @@ const AccountDropdown = ({ name, email, image }: Props) => {
   }, []);
 
   const handleSignOut = async () => {
-    await authClient.signOut();
+    const { error } = await authClient.signOut();
     setOpen(false);
+
+    if (error) {
+      toast.error(error.message ?? "সাইন আউট করা যায়নি।");
+      return;
+    }
+
+    toast.success("সফলভাবে সাইন আউট হয়েছে!");
   };
 
   return (
