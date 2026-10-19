@@ -185,10 +185,6 @@ Suggested summary: “A responsive Next.js market-price experience with category
 3. Run `npx tsc --noEmit` and `npm run build` before opening a pull request.
 4. Describe user-visible changes and environment requirements.
 
-## License
-
-No license file is currently present in the repository.
-
 ## Acknowledgments
 
 - Next.js and Vercel
