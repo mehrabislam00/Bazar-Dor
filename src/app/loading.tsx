@@ -1,6 +1,11 @@
 const Loading = () => {
   return (
-    <div className="flex-1 bg-[#E1E8E1] flex items-center justify-center px-4 py-6">
+    <div
+      role="status"
+      aria-live="polite"
+      aria-label="দাম লোড হচ্ছে"
+      className="flex min-h-full flex-1 items-center justify-center bg-[#E1E8E1] px-4 py-6"
+    >
       <div className="flex flex-col items-center gap-6">
 
         {/* Animated logo tile */}

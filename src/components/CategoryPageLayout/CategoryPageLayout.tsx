@@ -8,7 +8,7 @@ type Props = {
 
 const CategoryPageLayout = ({ category, products }: Props) => {
   return (
-    <div className="min-h-screen bg-[#E1E8E1]">
+    <div className="min-h-full bg-[#E1E8E1]">
       <div className="container mx-auto px-4 py-5 flex flex-col gap-4">
 
         {/* Category Header */}

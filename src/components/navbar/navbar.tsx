@@ -5,6 +5,7 @@ import Link from "next/link";
 import Logo from "@/assets/logo.png";
 import { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
+import { cacheUserProfile, clearCachedUserProfiles } from "@/lib/auth-client";
 import AccountDropdown from "@/components/AccountDropdown/AccountDropdown";
 
 const Navbar = () => {
@@ -24,6 +25,15 @@ const Navbar = () => {
   }, []);
 
   const user = session?.user;
+
+  useEffect(() => {
+    if (isPending) return;
+    if (user) {
+      cacheUserProfile(user);
+    } else {
+      clearCachedUserProfiles();
+    }
+  }, [isPending, user]);
 
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">

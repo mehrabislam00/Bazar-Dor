@@ -9,7 +9,7 @@ const Page = async () => {
   const products: Product[] = await getProducts();
 
   return (
-    <div className="min-h-screen bg-[#E1E8E1]">
+    <div className="min-h-full bg-[#E1E8E1]">
       <Hero />
       <PriceIncreased products={products} />
       <PriceDecreased products={products} />

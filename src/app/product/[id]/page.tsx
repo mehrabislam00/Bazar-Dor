@@ -38,7 +38,7 @@ const ProductPage = ({ params }: Props) => {
 };
 
 const ProductLoading = () => (
-  <div className="min-h-screen bg-[#E1E8E1]">
+  <div className="min-h-full bg-[#E1E8E1]">
     <div className="container mx-auto flex max-w-4xl flex-col gap-5 px-4 py-5">
       <div className="h-5 w-40 animate-pulse rounded bg-slate-200" />
       <div className="h-32 animate-pulse rounded-2xl bg-white" />

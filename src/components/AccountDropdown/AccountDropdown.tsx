@@ -2,7 +2,8 @@
 
 import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
-import { authClient } from "@/lib/auth-client";
+import { signOutUser } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 import Avatar from "@/components/Avatar/Avatar";
 import { toast } from "react-toastify";
 
@@ -13,6 +14,7 @@ type Props = {
 };
 
 const AccountDropdown = ({ name, email, image }: Props) => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -28,7 +30,7 @@ const AccountDropdown = ({ name, email, image }: Props) => {
   }, []);
 
   const handleSignOut = async () => {
-    const { error } = await authClient.signOut();
+    const { error } = await signOutUser();
     setOpen(false);
 
     if (error) {
@@ -37,6 +39,7 @@ const AccountDropdown = ({ name, email, image }: Props) => {
     }
 
     toast.success("সফলভাবে সাইন আউট হয়েছে!");
+    router.refresh();
   };
 
   return (

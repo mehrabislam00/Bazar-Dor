@@ -10,7 +10,7 @@ const ProductDetail = ({ product }: { product: Product }) => {
   const priceDiff = Math.abs(product.today - product.yesterday);
 
   return (
-    <div className="min-h-screen bg-[#E1E8E1]">
+    <div className="min-h-full bg-[#E1E8E1]">
       <div className="container mx-auto px-4 py-5 flex flex-col gap-5 max-w-4xl">
 
         {/* Breadcrumb */}
