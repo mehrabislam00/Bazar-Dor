@@ -3,7 +3,7 @@ import LoginForm from "@/components/LoginForm/LoginForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "সাইন ইন | বাজার দর",
+  title: "Sign In",
 };
 
 export const instant = false;

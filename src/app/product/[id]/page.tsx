@@ -8,9 +8,14 @@ import type { Metadata } from "next";
 
 type Props = { params: Promise<{ id: string }> };
 
-export const metadata: Metadata = {
-  title: "পণ্যের বিস্তারিত | বাজার দর",
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const product = await getSingleProduct(Number(id));
+
+  return {
+    title: product?.nameBn ?? "Product Details",
+  };
+}
 
 const getProductPath = (id: string) => `/product/${encodeURIComponent(id)}`;
 

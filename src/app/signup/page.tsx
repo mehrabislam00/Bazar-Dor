@@ -3,7 +3,7 @@ import SignupForm from "@/components/SignupForm/SignupForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "অ্যাকাউন্ট তৈরি করুন | বাজার দর",
+  title: "Sign Up",
 };
 
 const SignupPage = () => {

@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import SignOutButton from "@/components/SignOutButton/SignOutButton";
 
 export const metadata: Metadata = {
-  title: "আমার প্রোফাইল | বাজার দর",
+  title: "Profile",
 };
 
 const ProfileContent = async () => {
