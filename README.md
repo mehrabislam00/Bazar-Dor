@@ -20,32 +20,6 @@ Bazar-Dor helps shoppers explore current prices, category changes, and market ra
 - Responsive desktop, tablet, and mobile UI
 - Toast notifications, loading states, and lightweight route transitions
 
-## Screenshots
-
-These are real logged-out captures from the deployed application. No authenticated screenshots are included because no dedicated authorized test account was available.
-
-### Latest deployed captures
-
-![Latest Bazar-Dor homepage](docs/screenshots/homepage-current.png)
-
-![Latest category page](docs/screenshots/category-current.png)
-
-![Latest sign-up page](docs/screenshots/signup-current.png)
-
-### Additional captures
-
-![Homepage capture](docs/screenshots/home.png)
-
-![Category capture](docs/screenshots/category.png)
-
-![Category comparison](docs/screenshots/category2.png)
-
-![Product cards](docs/screenshots/cards.png)
-
-![Sign in](docs/screenshots/sign-in.png)
-
-![Sign up](docs/screenshots/sign-up.png)
-
 ## Routes
 
 | Route | Access | Purpose |
